@@ -7,10 +7,11 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-
+        plugin = "html:target/cucumber-report.html",
         features = "src/test/resources/features",
         glue = "com/cydeo/step_definitions",
-        dryRun = true
+        dryRun = true,
+        tags= "@wip"
 
 )
 class CukesRunner {
