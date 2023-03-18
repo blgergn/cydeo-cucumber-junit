@@ -1,6 +1,6 @@
 
 
-@Regression @smoke
+@Regression @smoke @login
 Feature: Library app login feature
 
   User Story:
@@ -9,21 +9,23 @@ Feature: Library app login feature
 
   Accounts are: librarian, student, admin
 
-  @librarian @employee @wip
-  Scenario: Login as librarian
+  Background: For the scenarios in the feature file, user is expected to be on login page
     Given user is on the library login page
+
+  @librarian @employee
+  Scenario: Login as librarianGiven user is on the library login page
     When user enters librarian username
     And user enters librarian password
     Then user should see the dashboard
 
-  @student
-  Scenario: Login as student
+  @student @db
+  Scenario: Login as studentGiven user is on the library login page
     When user enters student username
     And user enters student password
     Then user should see the dashboard
 
   @admin @employee
-  Scenario: Login as admin
+  Scenario: Login as adminGiven user is on the library login page
     When user enters admin username
     And user enters admin password
     Then user should see the dashboard
